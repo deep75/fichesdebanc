@@ -1,0 +1,45 @@
+<template name="amendementsItem">
+	<article class="fiche ui vertical segment {{#if talkingPoint}}done{{/if}}">
+		{{> amendmentInfo}}
+
+		<div class="content">
+			<div class="summary">
+				{{#if isEditing}}
+					<textarea name="summary"></textarea>
+				{{else}}
+					{{#if summary}}
+						{{summary}}
+					{{else}}
+						<em>{{_ 'noSummary'}}</em>
+					{{/if}}
+				{{/if}}
+			</div>
+
+			<div class="talkingPoint">
+				{{#if isEditing}}
+					<textarea name="talkingPoint"></textarea>
+				{{else}}
+					{{#if talkingPoint}}
+						{{talkingPoint}}
+					{{else}}
+						<em>{{_ 'noTalkingPoint'}}</em>
+					{{/if}}
+				{{/if}}
+			</div>
+
+			<div class="ui form">
+				<div class="ui field">
+					<p class="position">{{_ 'position'}}{{{_ 'colon'}}} {{_ position}}</p>
+				</div>
+				<div class="ui field">
+					<select name="manager" class="ui search dropdown">
+						<option value="">— {{_ 'noManager'}} —</option>
+						{{#each users}}
+							<option {{userOptionAttributes _id}}>{{username}}</option>
+						{{/each}}
+					</select>
+				</div>
+			</div>
+		</div>
+	</article>
+</template>

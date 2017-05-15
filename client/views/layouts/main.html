@@ -1,0 +1,14 @@
+<template name="mainLayout">
+	<header>
+		{{> menu}}
+		{{> progressBar}}
+	</header>
+
+	<main class="dimmable">
+		{{> yield}}
+	</main>
+
+	<footer class="metadata">
+		{{> footer}}
+	</footer>
+</template>

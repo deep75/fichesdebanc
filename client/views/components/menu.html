@@ -1,0 +1,40 @@
+<template name="menu">
+	<ul id="menu" class="ui menu">
+		<li class="mine teal item {{#if equals currentTab 'mine'}}active{{/if}}">
+			<a href="{{pathFor 'amendementsForUser' _id=currentUser._id}}">
+				{{_ 'myAmendments'}}
+			</a>
+			{{#if mineCount}}
+				<div class="ui label">{{mineCount}}</div>
+			{{/if}}
+		</li>
+		<li class="print item {{#if equals currentTab 'print'}}active{{/if}}">
+			<a href="{{pathFor 'amendementsPrintableList'}}">
+				{{#if equals currentTab 'print'}}
+					{{_ 'startPrinting'}}
+				{{else}}
+					{{_ 'print'}}
+				{{/if}}
+			</a>
+			<i class="print icon"></i>
+		</li>
+		<div class="right menu">
+			{{#if equals currentTab 'search'}}
+				{{#if resultsCount}}
+					<div class="item">
+						<div class="ui label">{{resultsCount}}</div>
+					</div>
+				{{/if}}
+			{{/if}}
+			<li class="search teal item {{#if equals currentTab 'search'}}active{{/if}}">
+				<div class="ui transparent icon input">
+					<input name="article" type="search" placeholder="{{_ 'article'}}…" value="{{query}}">
+					<i class="search icon"></i>
+				</div>
+			</li>
+			<li class="logout teal item">
+				<a href="{{pathFor 'login'}}">{{_ 'logoutLink'}} {{currentUser.username}}</a>
+			</li>
+		</div>
+	</ul>
+</template>

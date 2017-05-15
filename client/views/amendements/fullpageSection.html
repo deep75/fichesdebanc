@@ -1,0 +1,11 @@
+<template name="fullpageSection">
+	<h3 class="{{name}} ui horizontal divider header">{{_ name}}</h3>
+	<section class="{{name}}">
+		{{#if content}}
+			{{content}}
+		{{/if}}
+		{{#if iframeTarget}}
+			<iframe src="{{iframeTarget}}"></iframe>
+		{{/if}}
+	</section>
+</template>

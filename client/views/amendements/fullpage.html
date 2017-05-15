@@ -1,0 +1,42 @@
+<template name="amendementsFullpage">
+	<section class="fullPage ui segment">
+		<header>
+			<div>{{content.place.raw}}</div>
+
+			<h2 class="author">
+				{{_ 'proposedBy'}} <strong>{{content.auteurLabelFull}}</strong>
+
+				{{#if content.auteurGroupe}}
+					({{_ 'party'}}&nbsp;<strong>{{content.auteurGroupe}}</strong>)
+				{{/if}}
+			</h2>
+
+			<div>{{_id}}</div>
+		</header>
+
+		{{> fullpageSection name='summary'}}
+
+		<div class="print-only">{{> position}}</div>
+
+		{{> fullpageSection name='talkingPoint'}}
+
+		{{> fullpageSection name='amendment' iframeTarget=amendmentUrl}}
+
+		<footer class="{{position}}">
+			<nav>
+				{{#if previous}}
+					<a class="previous" href="{{pathFor 'amendementsFullpage' _id=previous._id}}">
+						{{> amendmentInfo previous}}
+					</a>
+				{{/if}}
+				{{#if next}}
+					<a class="next" href="{{pathFor 'amendementsFullpage' _id=next._id}}">
+						{{> amendmentInfo next}}
+					</a>
+				{{/if}}
+			</nav>
+
+			{{> position}}
+		</footer>
+	</section>
+</template>

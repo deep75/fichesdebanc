@@ -1,0 +1,13 @@
+#menu, #progressBar {
+	position: fixed;
+	width: 100%;
+	z-index: 1;
+}
+
+#progressBar {
+	top: 3em;
+}
+
+header {
+	height: 3em;
+}
